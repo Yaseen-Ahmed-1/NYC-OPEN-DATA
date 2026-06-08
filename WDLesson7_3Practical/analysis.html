@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+
+<title>NYC WiFi Charts</title>
+
+<link href="style.css" rel="stylesheet" type="text/css">
+
+<link href="c3.css" rel="stylesheet" type="text/css">
+<script src="c3.js"></script>
+<script src="d3.js"></script>
+
+<script src="script.js"></script>
+</head>
+
+<body>
+
+<div id="banner" class="container center">
+<h1>NYC WiFi Charts</h1>
+</div>
+
+<div class="container subbanner">
+<div>
+<p>
+This page displays charts about NYC WiFi hotspot data.
+</p>
+</div>
+</div>
+
+<div class="container">
+
+<div id="panel">
+
+<div class="card">
+<h3>Provider Chart</h3>
+<p><span class="highlight">Scenario:</span> Shows WiFi locations by provider.</p>
+<a class="button" onclick="providerChart()">Display</a>
+</div>
+
+<div class="card">
+<h3>Borough Chart</h3>
+<p><span class="highlight">Scenario:</span> Shows WiFi locations by borough.</p>
+<a class="button" onclick="boroughChart()">Display</a>
+</div>
+
+<div class="card">
+<h3>Type Chart</h3>
+<p><span class="highlight">Scenario:</span> Shows WiFi locations by WiFi type.</p>
+<a class="button" onclick="typeChart()">Display</a>
+</div>
+
+</div>
+
+<div class="card">
+<div id="chart"></div>
+</div>
+
+</div>
+
+<div id="footer" class="container center">
+    <h3>NYC Open Data Project</h3>
+    <a class="button" href="index.html">Back Home</a>
+    <a class="button" href="card.html">View Cards</a>
+    <a class="button" href="map.html">Map</a>
+</div>
+
+</body>
+</html>

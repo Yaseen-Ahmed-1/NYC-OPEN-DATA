@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+
+<title>NYC WiFi Locations</title>
+
+<link href="style.css" rel="stylesheet">
+<script src="script.js"></script>
+</head>
+
+<body onload="init()">
+
+<div id="banner" class="container center">
+<div style="text-align:center">
+<h1>NYC Open Data</h1>
+<h2>WiFi Hotspot Locations</h2>
+</div>
+</div>
+
+<div class="container">
+
+<div id="leftPanel">
+
+<div class="card">
+<h3>SEARCH By Location</h3>
+<input type="text" id="location" placeholder="Enter location">
+<hr>
+<a class="button" onclick="filterByLocation()">Search</a>
+</div>
+
+<div class="card">
+<h3>SEARCH By Provider</h3>
+<input type="text" id="provider" placeholder="Enter Provider">
+<hr>
+<a class="button" onclick="filterByProvider()">Search</a>
+</div>
+
+<div class="card">
+<h3>SEARCH Multiple Filters</h3>
+<input type="text" id="multiLocation" placeholder="Enter Location">
+<input type="text" id="multiProvider" placeholder="Enter Provider">
+<hr>
+<a class="button" onclick="filterMultiple()">Search All</a>
+</div>
+
+</div>
+
+<div id="rightPanel" class="card">
+<h1>WiFi Location Data</h1>
+<div id="result"></div>
+<div id="output" class="container"></div>
+</div>
+
+</div>
+
+<div id="footer" class="container center">
+    <h3>NYC Open Data Project</h3>
+    <a class="button" href="index.html">Back Home</a>
+    <a class="button" href="analysis.html">Chart</a>
+    <a class="button" href="map.html">Map</a>
+</div>
+
+</body>
+</html>
