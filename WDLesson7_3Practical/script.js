@@ -28,7 +28,7 @@ function filterByLocation() {
 let location = document.getElementById("location").value.toLowerCase();
 
 let filtered = data.filter(function(item) {
-return item.location.toLowerCase() == location;
+  return item.location.toLowerCase() == location;
 });
 
 displayCards(filtered);
