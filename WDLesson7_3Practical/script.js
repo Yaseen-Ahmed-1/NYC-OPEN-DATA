@@ -1,10 +1,10 @@
 let data, info;
 
-async function init(){   
+async function init(){  
   let link = "wifi.json";  
   info = await fetch(link);
   data = await info.json();
-  
+ 
   let output = document.getElementById("output");
   let build = "";
 
@@ -25,7 +25,7 @@ async function init(){
 }
 
 function filterByLocation() {
-let location = document.getElementById("location").value;
+let location = document.getElementById("location").value.toLowerCase();
 
 let filtered = data.filter(function(item) {
 return item.location.toLowerCase() == location;
@@ -34,13 +34,12 @@ return item.location.toLowerCase() == location;
 displayCards(filtered);
 }
 
-function filterByLocation() {
-let location = document.getElementById("location").value.toLowerCase();
+function filterByProvider(){
+  let provider = document.getElementById("provider").value;
 
-let filtered = data.filter(function(item) {
-return item.location.toLowerCase() == location;
-});
-
+  let filtered = data.filter(function(item){
+    return item.provider == provider;
+  });
 
   displayCards(filtered);
 }
@@ -123,6 +122,7 @@ displayChart(boroughData, "chart", "bar");
 function typeChart() {
 displayChart(typeData, "chart", "pie");
 }
+
 
 let wifiData;
 let map;
