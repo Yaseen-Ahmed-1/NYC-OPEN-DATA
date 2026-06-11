@@ -34,12 +34,13 @@ return item.location.toLowerCase() == location;
 displayCards(filtered);
 }
 
-function filterByProvider(){
-  let provider = document.getElementById("provider").value;
+function filterByLocation() {
+let location = document.getElementById("location").value.toLowerCase();
 
-  let filtered = data.filter(function(item){
-    return item.provider == provider;
-  });
+let filtered = data.filter(function(item) {
+return item.location.toLowerCase() == location;
+});
+
 
   displayCards(filtered);
 }
