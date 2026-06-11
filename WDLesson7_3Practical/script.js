@@ -25,7 +25,7 @@ async function init(){
 }
 
 function filterByLocation() {
-let location = document.getElementById("location").value.toLowerCase();
+let location = document.getElementById("location").value;
 
 let filtered = data.filter(function(item) {
 return item.location.toLowerCase() == location;
