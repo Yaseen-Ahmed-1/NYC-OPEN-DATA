@@ -78,8 +78,19 @@ nav a:hover{
 }
 
 #output{
-  display:flex;
-  flex-direction:column;
+display:flex;
+flex-direction:row;
+}
+
+#leftPanel{
+width:60%;
+display:flex;
+flex-wrap:wrap;
+}
+
+#map{
+width:40%;
+height:600px;
 }
 
 .fit{
@@ -99,4 +110,9 @@ nav a:hover{
   width:100%;
   display:flex;
   flex-wrap:wrap;
+}
+
+#map{
+width: 50%;
+height: 600px;
 }
