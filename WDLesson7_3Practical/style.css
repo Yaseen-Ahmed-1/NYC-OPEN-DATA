@@ -1,6 +1,6 @@
 html,body{
-margin:0 auto;
-font-family:Arial;
+  margin:0 auto;
+  font-family:Arial;
 }
 
 .container{
@@ -14,60 +14,50 @@ font-family:Arial;
 }
 
 nav{
-  background-color:#5b7cfa;
+  background-color:darkslategray;
 }
 
 nav a{
-  color:#f8fafc;
+  color:white;
   padding:10px;
   flex:1;
   text-decoration:none;
   text-align:center;
-  transition:all 0.2s ease;
 }
 
 nav a:hover{
-  background:rgba(255,255,255,0.12);
-  color:white;
+  color:lightgray;
 }
 
 .subbanner{
-  background-color:#e8f0ff;
+  background-color:darkslategray;
 }
 
 #banner{
-  background-color:#4c6ef5;
+  background-color:#1f4e79;
   color:white;
 }
 
 #footer{
-  background-color:#5b7cfa;
+  background-color:#1f4e79;
   color:white;
-  left:0;
-  right:0;
+  /*position:fixed;*/
+  left: 0;
+  right: 0;
   bottom:0px;
 }
 
 .card{
-  flex:1;
+  flex:1 0 250px;
   margin:10px;
-  padding:14px;
-  border:1px solid #dbe4f0;
-  border-radius:12px;
+  padding:10px;
+  border:1px solid #444;
   text-align:center;
-  background:white;
-  box-shadow:0 2px 8px rgba(0,0,0,0.06);
-  transition:transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.card:hover{
-  transform:translateY(-2px);
-  box-shadow:0 6px 16px rgba(0,0,0,0.08);
 }
 
 .highlight{
   font-style:italic;
-  color:#4c6ef5;
+  color:#1f4e79;
 }
 
 .heading{
@@ -76,34 +66,37 @@ nav a:hover{
 
 .button{
   text-decoration:none;
-  background-color:#4c6ef5;
+  background-color:#1f4e79;
   color:white;
-  border-radius:8px;
-  padding:6px 12px;
-  box-shadow:0 2px 6px rgba(0,0,0,0.15);
-  transition:all 0.2s ease;
+  border-radius:4px;
+  padding:6px;
+  box-shadow:2px 2px 2px black;
 }
 
 .button:hover{
-  background-color:#6887ff;
-}
-
-#panel{
-  flex:1;
-}
-
-.flash{
-  max-width:200px;
-}
-
-.card img{
-  height:100px;
+  background-color:steelblue;
 }
 
 #output{
-  flex-wrap:wrap;
+  display:flex;
+  flex-direction:column;
 }
-#map {
-  height:500px;
+
+.fit{
+  width:150px;
+  height:150px;
+  object-fit:contain;
+}
+
+#result{
+  background-color:lightgray;
+  color:#1f4e79;
+  max-width: 200px;
+  font-size: 20px;
+}
+
+#leftPanel{
   width:100%;
+  display:flex;
+  flex-wrap:wrap;
 }

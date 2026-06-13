@@ -1,66 +1,69 @@
 <!DOCTYPE html>
 <html>
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>WiFi Hotspots with map</title>
 
-<title>NYC WiFi Locations</title>
+    <!-- LeafletJS CSS file -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
+    
+    <!-- LeafletJS JS file -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
 
-<link href="style.css" rel="stylesheet">
-<script src="script.js"></script>
-</head>
+    <link href="style.css" rel="stylesheet" type="text/css" />
+    
+    <script src="helper.js"></script>
+    <script src="script.js"></script>
+  </head>
 
-<body onload="init()">
+  <body onload="init()">
 
-<div id="banner" class="container center">
-<div style="text-align:center">
-<h1>NYC Open Data</h1>
-<h2>WiFi Hotspot Locations</h2>
-</div>
-</div>
+    <div id="banner" class="container center">
+      <h1>WiFi Hotspots - Location Map</h1>
+    </div>
 
-<div class="container">
+    <div class="container subbanner">
+      <div>
+        <p>
+          This classwork challenges students to display static maps for locations of WiFi hotspots from NYC Open Data.
+        </p>
+        <h4>
+          The latitude and longitude information of a WiFi hotspot retrieved from NYC Open Data will be sent to LeafletJS to retrieve a map of the hotspot location.
+        </h4>
+      </div>
+    </div>
 
-<div id="leftPanel">
+    <div class="container">
 
-<div class="card">
-<h3>SEARCH By Location</h3>
-<input type="text" id="location" placeholder="Enter location">
-<hr>
-<a class="button" onclick="filterByLocation()">Search</a>
-</div>
+  <div>
+    <input type="text" id="location" placeholder="Enter location">
+    <a class="button" onclick="filterByLocation()">Search Location</a>
+  </div>
 
-<div class="card">
-<h3>SEARCH By Provider</h3>
-<input type="text" id="provider" placeholder="Enter Provider">
-<hr>
-<a class="button" onclick="filterByProvider()">Search</a>
-</div>
+  <div>
+    <input type="text" id="provider" placeholder="Enter provider">
+    <a class="button" onclick="filterByProvider()">Search Provider</a>
+  </div>
 
-<div class="card">
-<h3>SEARCH Multiple Filters</h3>
-<input type="text" id="multiLocation" placeholder="Enter Location">
-<input type="text" id="multiProvider" placeholder="Enter Provider">
-<hr>
-<a class="button" onclick="filterMultiple()">Search All</a>
-</div>
+  <div>
+    <input type="text" id="multiLocation" placeholder="Enter location">
+    <input type="text" id="multiProvider" placeholder="Enter provider">
+    <a class="button" onclick="filterMultiple()">Search Multiple</a>
+  </div>
 
-</div>
-
-<div id="rightPanel" class="card">
-<h1>WiFi Location Data</h1>
-<div id="result"></div>
-<div id="output" class="container"></div>
-</div>
-
-</div>
-
-<div id="footer" class="container center">
-    <h3>NYC Open Data Project</h3>
-    <a class="button" href="index.html">Back Home</a>
-    <a class="button" href="analysis.html">Chart</a>
-    <a class="button" href="map.html">Map</a>
 </div>
 
-</body>
+    <div id="output" class="container">
+      <div id="leftPanel"></div>
+
+      <!-- div for LeafletJS map -->
+      <div id="map"></div>
+    </div>
+
+    <div id="footer" class="container center">
+      <h3>WiFi Hotspot Project</h3>
+    </div>
+
+  </body>
 </html>

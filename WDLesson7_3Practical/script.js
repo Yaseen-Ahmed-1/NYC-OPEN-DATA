@@ -1,99 +1,99 @@
+
+let data, info, leftPanel;
+
+async function init() {
+
+
+  let link = "wifi.json";
+
+  info = await fetch(link);
+  data = await info.json();
+
+  leftPanel = get("leftPanel");
+
+  let build = "";
+
+  
+  for(let i = 0; i < data.length; i += 1) {
+    let wifi = data[i];
+    build += card(wifi);
+  }
+
+ 
+  leftPanel.innerHTML = build;
+}
+
+
+function card(wifi){
+
+  return `
+  <div class="card">
+    <h3>${wifi.name}</h3>
+    <hr>
+    <p><b>Provider:</b> ${wifi.provider}</p>
+    <p><b>Location:</b> ${wifi.location}</p>
+    <p><b>Borough:</b> ${wifi.boroname}</p>
+    <p><b>SSID:</b> ${wifi.ssid}</p>
+    <p><b>Coordinates:</b> ${wifi.latitude}, ${wifi.longitude}</p>
+  </div>`;
+}
+
+
 function filterByLocation(){
 
-let output = document.getElementById("output");
-let result = document.getElementById("result");
+  leftPanel = get("leftPanel");
+  let location = get("location").value;
+  let build = "";
 
-let location = document.getElementById("location").value;
+  for(let i = 0; i < data.length; i++){
+    let wifi = data[i];
 
-let build = "";
-let ct = 0;
+    if(wifi.location == location){
+      build += card(wifi);
+    }
+  }
 
-for(let i = 0; i < data.length; i += 1){
-
-let wifi = data[i];
-
-if(wifi.location == location){
-
-build += `
-<div class="fitted card">
-<h3>${wifi.name}</h3>
-<hr>
-<p>Provider: ${wifi.provider}</p>
-<p>Location: ${wifi.location}</p>
-<p>Coordinates: ${wifi.latitude}, ${wifi.longitude}</p>
-</div>`;
-
-ct += 1;
-}
+  leftPanel.innerHTML = build;
 }
 
-result.innerHTML = `${ct} Results Found`;
-output.innerHTML = build;
-}
 
 function filterByProvider(){
 
-let output = document.getElementById("output");
-let result = document.getElementById("result");
+  leftPanel = get("leftPanel");
+  let provider = get("provider").value;
+  let build = "";
 
-let provider = document.getElementById("provider").value;
+  for(let i = 0; i < data.length; i++){
+    let wifi = data[i];
 
-let build = "";
-let ct = 0;
+    if(wifi.provider == provider){
+      build += card(wifi);
+    }
+  }
 
-for(let i = 0; i < data.length; i += 1){
-
-let wifi = data[i];
-
-if(wifi.provider == provider){
-
-build += `
-<div class="fitted card">
-<h3>${wifi.name}</h3>
-<hr>
-<p>Provider: ${wifi.provider}</p>
-<p>Location: ${wifi.location}</p>
-<p>Coordinates: ${wifi.latitude}, ${wifi.longitude}</p>
-</div>`;
-
-ct += 1;
-}
-}
-
-result.innerHTML = `${ct} Results Found`;
-output.innerHTML = build;
+  leftPanel.innerHTML = build;
 }
 
 function filterMultiple(){
 
-let output = document.getElementById("output");
-let result = document.getElementById("result");
+  leftPanel = get("leftPanel");
 
-let location = document.getElementById("multiLocation").value;
-let provider = document.getElementById("multiProvider").value;
+  let location = get("multiLocation").value;
+  let provider = get("multiProvider").value;
 
-let build = "";
-let ct = 0;
+  let build = "";
 
-for(let i = 0; i < data.length; i += 1){
+  for(let i = 0; i < data.length; i++){
+    let wifi = data[i];
 
-let wifi = data[i];
+    if(wifi.location == location && wifi.provider == provider){
+      build += card(wifi);
+    }
+  }
 
-if(wifi.location == location && wifi.provider == provider){
-
-build += `
-<div class="fitted card">
-<h3>${wifi.name}</h3>
-<hr>
-<p>Provider: ${wifi.provider}</p>
-<p>Location: ${wifi.location}</p>
-<p>Coordinates: ${wifi.latitude}, ${wifi.longitude}</p>
-</div>`;
-
-ct += 1;
-}
+  leftPanel.innerHTML = build;
 }
 
-result.innerHTML = `${ct} Results Found`;
-output.innerHTML = build;
+function get(id){
+  return document.getElementById(id);
 }
