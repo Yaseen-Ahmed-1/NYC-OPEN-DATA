@@ -1,4 +1,3 @@
-//Global variables
 let data, info, leftPanel, mapObj;
 
 async function init(){
@@ -7,15 +6,18 @@ let link = "wifi.json";
 info = await fetch(link);
 data = await info.json();
 
-leftPanel = get("leftPanel");
+leftPanel = document.getElementById("leftPanel");
+
+if(leftPanel){
 let build = "";
 
-for(let i = 0; i < data.length; i+=1) {
+for(let i = 0; i < data.length; i+=1){
 let wifi = data[i];
 build += card(wifi);
 }
 
 leftPanel.innerHTML = build;
+}
 }
 
 function card( info ){
@@ -100,101 +102,45 @@ mapObj.setView(location, 14);
 
 L.marker(location).addTo(mapObj);
 }
+
+function wifiByBorough(){
+let q = 0, bk = 0, bx = 0, m = 0, s = 0;
+
+for(let i = 0; i < data.length; i++){
+let wifi = data[i];
+
+if(wifi.boroname == "Queens"){
+q++;
+}else if(wifi.boroname == "Manhattan"){
+m++;
+}else if(wifi.boroname == "Brooklyn"){
+bk++;
+}else if(wifi.boroname == "Bronx"){
+bx++;
+}else if(wifi.boroname == "Staten Island"){
+s++;
+}
+}
+
+let chartData = [
+["Queens", q],
+["Manhattan", m],
+["Brooklyn", bk],
+["Bronx", bx],
+["Staten Island", s]
+];
+
+let chartType = document.getElementById("chartType").value;
+
+displayChart(chartData, "output", chartType);
+}
+
 function displayChart( data, chart_id, chart_type ){
-c3.generate({
+let chart = c3.generate({
 bindto: `#${chart_id}`,
 data: {
 columns: data,
 type: chart_type
 }
 });
-}
-
-function providerChart(){
-let spectrum = 0;
-let transit = 0;
-let downtown = 0;
-
-for(let i = 0; i < data.length; i++){
-let wifi = data[i];
-
-if(wifi.provider == "SPECTRUM"){
-spectrum++;
-}
-if(wifi.provider == "Transit Wireless"){
-transit++;
-}
-if(wifi.provider == "Downtown Brooklyn"){
-downtown++;
-}
-}
-
-let chartData = [
-["SPECTRUM", spectrum],
-["Transit Wireless", transit],
-["Downtown Brooklyn", downtown]
-];
-
-displayChart(chartData, "chart", "pie");
-}
-
-function boroughChart(){
-let queens = 0;
-let brooklyn = 0;
-let manhattan = 0;
-let bronx = 0;
-let staten = 0;
-
-for(let i = 0; i < data.length; i++){
-let wifi = data[i];
-
-if(wifi.boroname == "Queens"){
-queens++;
-}
-if(wifi.boroname == "Brooklyn"){
-brooklyn++;
-}
-if(wifi.boroname == "Manhattan"){
-manhattan++;
-}
-if(wifi.boroname == "Bronx"){
-bronx++;
-}
-if(wifi.boroname == "Staten Island"){
-staten++;
-}
-}
-
-let chartData = [
-["Queens", queens],
-["Brooklyn", brooklyn],
-["Manhattan", manhattan],
-["Bronx", bronx],
-["Staten Island", staten]
-];
-
-displayChart(chartData, "chart", "bar");
-}
-
-function typeChart(){
-let free = 0;
-let limited = 0;
-
-for(let i = 0; i < data.length; i++){
-let wifi = data[i];
-
-if(wifi.type == "Free"){
-free++;
-}
-if(wifi.type == "Limited Free"){
-limited++;
-}
-}
-
-let chartData = [
-["Free", free],
-["Limited Free", limited]
-];
-
-displayChart(chartData, "chart", "pie");
 }

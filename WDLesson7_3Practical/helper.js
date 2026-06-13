@@ -1,9 +1,7 @@
-// get() returns the element using document.getElementById().
 function get(id){
 return document.getElementById(id);
 }
 
-// showMap() displays the map for a location [lat, lon] in the right panel
 function showMap(lat,lon){
 let location = [lat, lon];
 

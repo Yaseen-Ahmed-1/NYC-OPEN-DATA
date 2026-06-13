@@ -9,8 +9,8 @@
 <link href="style.css" rel="stylesheet" type="text/css">
 
 <link href="c3.css" rel="stylesheet" type="text/css">
-<script src="c3.js"></script>
 <script src="d3.js"></script>
+<script src="c3.js"></script>
 
 <script src="script.js"></script>
 </head>
@@ -18,52 +18,45 @@
 <body onload="init()">
 
 <div id="banner" class="container center">
-<h1>NYC WiFi Charts</h1>
+<h1>Aggregating Info for Charts (NYC WiFi)</h1>
 </div>
 
 <div class="container subbanner">
 <div>
 <p>
-This page displays charts about NYC WiFi hotspot data.
+This information of hotspot in chart form
 </p>
+
+<h3>Chart analysis of WiFi Hotspots by Borough</h3>
 </div>
 </div>
 
 <div class="container">
 
-<div id="panel">
+<p>
+<span class="highlight">Scenario:</span>
+Chart analyzes the number of WiFi hotspots by boroughs.
+</p>
 
-<div class="card">
-<h3>Provider Chart</h3>
-<p><span class="highlight">Scenario:</span> Shows WiFi locations by provider.</p>
-<a class="button" onclick="providerChart()">Display</a>
-</div>
+<select id="chartType">
+<option value="">Select Chart Type</option>
+<option value="line">Line</option>
+<option value="bar">Bar</option>
+<option value="pie">Pie</option>
+<option value="donut">Donut</option>
+</select>
 
-<div class="card">
-<h3>Borough Chart</h3>
-<p><span class="highlight">Scenario:</span> Shows WiFi locations by borough.</p>
-<a class="button" onclick="boroughChart()">Display</a>
-</div>
-
-<div class="card">
-<h3>Type Chart</h3>
-<p><span class="highlight">Scenario:</span> Shows WiFi locations by WiFi type.</p>
-<a class="button" onclick="typeChart()">Display</a>
-</div>
+<a class="button" onclick="wifiByBorough()">Display</a>
 
 </div>
 
-<div class="card">
-<div id="chart"></div>
-</div>
-
-</div>
+<div id="output"></div>
 
 <div id="footer" class="container center">
-    <h3>NYC Open Data Project</h3>
-    <a class="button" href="index.html">Back Home</a>
-    <a class="button" href="card.html">View Cards</a>
-    <a class="button" href="map.html">Map</a>
+<h3>WiFi Hotspot Project</h3>
+
+<a class="button" href="index.html">Home</a>
+<a class="button" href="card.html">Cards & Map</a>
 </div>
 
 </body>
